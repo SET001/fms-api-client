@@ -12,7 +12,9 @@ const axios = require('axios');
 const axiosCookieJarSupport = require('axios-cookiejar-support').default;
 const { omit } = require('../utilities');
 
-const instance = axios.create();
+const instance = axios.create({
+    httpsAgent: new https.Agent({ keepAlive: true }),
+});
 
 axiosCookieJarSupport(instance);
 
