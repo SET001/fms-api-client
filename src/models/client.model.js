@@ -80,7 +80,6 @@ class Client extends Document {
       threshold,
       usage,
       proxy,
-      keepAlive,
       ...connection
     } = data;
     const protocol = data.server.startsWith('https') ? 'https' : 'http';
@@ -93,7 +92,6 @@ class Client extends Document {
       concurrency,
       protocol,
       connection,
-      keepAlive,
     });
   }
 
