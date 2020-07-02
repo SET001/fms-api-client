@@ -402,8 +402,10 @@ class Agent extends EmbeddedDocument {
     } else {
       if (error.response.data.messages[0].code === '952')
         this.connection.clear(token);
-      if(error.response.data.messages[0].code === '401') 
+      if(error.response.data.messages[0].code === '401')  {
+        error.response.data.response.data = []
         return error.response;
+      }
       return Promise.reject(error.response.data.messages[0]);
     }
   }
